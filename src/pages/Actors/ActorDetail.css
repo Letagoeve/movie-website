@@ -1,0 +1,111 @@
+
+
+.actor-detail-page {
+  padding: 250px; 
+  background-color: black;  
+}
+
+.actor-detail {
+  display: flex; /* Align items horizontally */
+  align-items: flex-start; /* Align items to the top */
+  gap: 20px; /* Space between picture and info */
+}
+
+.actor-detail-image {
+  border-radius: 10px;
+  max-width: 200px; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow effect */
+}
+
+.actor-info {
+  flex: 1; 
+  color: white
+}
+
+.actor-info h1 {
+  font-size: 2rem;
+  margin: 0;
+  background-color: black;
+}
+
+.actor-info p {
+  margin: 5px 0;
+}
+
+.actor-info strong {
+  font-weight: bold;
+}
+
+.actor-movies {
+  margin-top: 20px;
+  padding: 20px 0; /* Added padding for better spacing */
+}
+
+.actor-movies h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.actor-movies-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.movie-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.movie-item:hover {
+  transform: scale(1.05);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.movie-info {
+  padding: 10px;
+  background-color: #fff;
+}
+
+.movie-info h3 {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  text-align: center;
+}
+
+
+@media (max-width: 768px) {
+  .actor-detail {
+    flex-direction: column; /* Stack vertically */
+    align-items: center; /* Center items */
+  }
+  
+  .actor-detail-image {
+    max-width: 90%; /* Scale down image */
+  }
+
+  .actor-info {
+    text-align: center; /* Center text */
+  }
+  
+  .movie-item {
+    width: 100px; /* Adjust width for smaller screens */
+  }
+  
+  .movie-poster {
+    height: 150px; /* Adjust height for smaller screens */
+  }
+}

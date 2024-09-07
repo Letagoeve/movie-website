@@ -1,0 +1,118 @@
+/* src/components/Navbar/Navbar.css */
+
+.navbar {
+  position: fixed; /* Keeps the navbar in place while scrolling */
+  top: 0;
+  left: 0;
+  height: 100%; /* Full height */
+  width: 200px; /* Adjust width as needed */
+  background: rgba(18, 16, 16, 0.8); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Optional: adds a blur effect */
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.3); /* Shadow on the right side */
+  z-index: 1000; /* Ensures the navbar stays above other content */
+  display: flex;
+  flex-direction: column; /* Aligns items vertically */
+}
+
+.navbar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  /* width: 100%; */
+}
+
+.navbar-brand-text {
+  font-size: 2rem; /* Increase font size */
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #f39c12, #e74c3c); /* Gradient background */
+  -webkit-background-clip: text; /* Gradient text effect */
+  -webkit-text-fill-color: transparent; /* Gradient text effect */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow for better readability */
+  padding: 250px; /* Add padding */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.nav-item {
+  margin-top: 50px;
+  margin-left:20px;
+  
+  
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff; /* Adjust color for contrast */
+  font-size: 1rem;
+  display: block;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: #333; /* Background color on hover or active */
+  color: #f39c12; /* Change color on hover or active */
+}
+
+.dropdown-menu {
+  border-radius: 0;
+}
+
+.dropdown-menu-vertical {
+  width: 200px; /* Adjust width for dropdown */
+}
+
+.dropdown-menu-horizontal {
+  display: flex;
+  flex-direction: column;
+  width: 200px; /* Adjust width for horizontal dropdown */
+}
+
+.dropdown-item {
+  padding: 10px;
+  background-color: #333; /* Background for dropdown items */
+  color: #fff; /* Text color for dropdown items */
+}
+
+.badge {
+  position: absolute; /* Positioned relative to the nav link */
+  top: -5px;
+  right: -10px;
+  font-size: 0.75rem;
+  background-color: #e74c3c; /* Adjust badge background color as needed */
+  color: #fff; /* Adjust badge text color as needed */
+}
+.navbar-brand-text{
+  margin-left:25px;
+
+}
+@media (max-width: 768px) {
+  /* .navbar-content {
+    flex-direction: column;
+    align-items: flex-start;
+  } */
+
+  .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+/* 
+  .nav-item {
+    margin: 5px 0;
+  } */
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+  }
+}

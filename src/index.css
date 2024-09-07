@@ -1,0 +1,13 @@
+/* Global background image for the entire app */
+body {
+  /* background-image: url('/bg.jpg'); */
+  background-color: rgb(33, 31, 31);
+  background-size: cover; /* Ensures the image covers the whole screen */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Makes the background image fixed while scrolling */
+  background-position: center; /* Centers the image */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  font-family: Arial, sans-serif; /* Optional: set a global font */
+  color: #fff; /* Optional: set a global text color */
+}
