@@ -1,60 +1,23 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faHeartCrack } from "@fortawesome/free-solid-svg-icons";
-// import { useSelector } from "react-redux";
-// import MovieCard from "../Movies/movieCard";
+// import React from 'react';
+// import { useLocation } from 'react-router-dom';
 
-// function WatchList() {
-//   const watchList = useSelector((state) => state.watchList.watchListValues);
-
-//   return watchList.length === 0 ? (
-//     <div className="d-flex flex-column justify-content-center align-items-center">
-//       <FontAwesomeIcon
-//         icon={faHeartCrack}
-//         style={{
-//           color: "lightgray",
-//           width: "200px",
-//           height: "200px",
-//           marginTop: "100px",
-//         }}
-//       />
-//       <h4
-//         className="custom-heading m-3"
-//         style={{
-//           color: "black",
-//           fontFamily: "cursive",
-//           fontWeight: "bolder",
-//           margin: "20px",
-//         }}
-//       >
-//         Your watchlist is empty
-//       </h4>
-//     </div>
-//   ) : (
-//     <div className="row row-cols-md-2 d-flex justify-content-center">
-//       {watchList.map((movie) => (
-//         <div
-//           className="card m-2"
-//           style={{
-//             maxWidth: "550px",
-//             borderRadius: "20px",
-//             boxShadow: "2px 2px 10px lightgray",
-//           }}
-//         >
-//           <div className="row">
-//             <div className="col-md-4 p-0">
-//               <img
-//                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-//                 className="card-img"
-//                 alt={movie.title}
-//                 style={{ borderRadius: "20px" }}
-//               />
-//             </div>
-//             <MovieCard key={movie.id} movie={movie} />
-//           </div>
-//         </div>
-//       ))}
+// const Watchlist = ({ favoriteMovies }) => {
+//   return (
+//     <div>
+//       <h1>Your Watchlist</h1>
+//       {favoriteMovies.length === 0 ? (
+//         <p>No movies in your watchlist.</p>
+//       ) : (
+//         <ul>
+//           {favoriteMovies.map((movieId) => (
+//             <li key={movieId}>
+//               Movie ID: {movieId} {/* Replace with actual movie details */}
+//             </li>
+//           ))}
+//         </ul>
+//       )}
 //     </div>
 //   );
-// }
+// };
 
-// export default WatchList;
+// export default Watchlist;

@@ -1,7 +1,11 @@
 
 
 .actor-detail-page {
-  padding: 250px; 
+  padding-left: 150px;
+  padding-bottom: 250px;
+  padding-right: 250px;
+  padding-top: 90px;
+  /* padding: 250px;  */
   background-color: black;  
 }
 
@@ -31,15 +35,18 @@
 
 .actor-info p {
   margin: 5px 0;
+  padding-top: 20px;
 }
 
 .actor-info strong {
   font-weight: bold;
+
 }
 
 .actor-movies {
   margin-top: 20px;
-  padding: 20px 0; /* Added padding for better spacing */
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 .actor-movies h2 {

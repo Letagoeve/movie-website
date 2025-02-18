@@ -1,118 +1,206 @@
-/* src/components/Navbar/Navbar.css */
-
+/* Navbar Styles */
 .navbar {
-  position: fixed; /* Keeps the navbar in place while scrolling */
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100%; /* Full height */
-  width: 200px; /* Adjust width as needed */
-  background: rgba(18, 16, 16, 0.8); /* Semi-transparent background */
-  backdrop-filter: blur(10px); /* Optional: adds a blur effect */
-  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.3); /* Shadow on the right side */
-  z-index: 1000; /* Ensures the navbar stays above other content */
+  width: 100%;
+  height: 70px; 
+  background: rgba(18, 16, 16, 0.8); 
+  backdrop-filter: blur(50px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
   display: flex;
-  flex-direction: column; /* Aligns items vertically */
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0 20px;
+  transition: transform 0.3s ease;
 }
 
+/* Navbar Content (Brand + Toggle) */
 .navbar-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 20px;
-  /* width: 100%; */
 }
 
+/* Navbar Brand Text */
 .navbar-brand-text {
-  font-size: 2rem; /* Increase font size */
+  font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
-  margin-bottom: 20px;
-  background: linear-gradient(45deg, #f39c12, #e74c3c); /* Gradient background */
-  -webkit-background-clip: text; /* Gradient text effect */
-  -webkit-text-fill-color: transparent; /* Gradient text effect */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow for better readability */
-  padding: 250px; /* Add padding */
-  border-radius: 10px; /* Rounded corners */
+  background: linear-gradient(45deg, #f39c12, #e74c3c);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 10px 20px;
+  border-radius: 10px;
+  white-space: nowrap; 
 }
 
-.navbar-nav {
+.navbar-list {
   list-style: none;
-  padding: 0;
+  padding: 120px;
   margin: 0;
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  color: #f39c12;
 }
 
 .nav-item {
-  margin-top: 50px;
-  margin-left:20px;
-  
-  
+  margin: 0 10px;
+  color: #f39c12;
 }
 
 .nav-link {
   text-decoration: none;
-  color: #fff; /* Adjust color for contrast */
-  font-size: 1rem;
+  color: #fff;
+  font-size: larger;
   display: block;
-  padding: 10px 20px;
+  padding: 12px 20px;
+  border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  background-color: #333; /* Background color on hover or active */
-  color: #f39c12; /* Change color on hover or active */
+  background-color: #575757;
+  color: #f39c12;
 }
 
-.dropdown-menu {
-  border-radius: 0;
-}
-
-.dropdown-menu-vertical {
-  width: 200px; /* Adjust width for dropdown */
-}
-
-.dropdown-menu-horizontal {
-  display: flex;
-  flex-direction: column;
-  width: 200px; /* Adjust width for horizontal dropdown */
-}
-
-.dropdown-item {
-  padding: 10px;
-  background-color: #333; /* Background for dropdown items */
-  color: #fff; /* Text color for dropdown items */
-}
-
+/* Badge on the navbar */
 .badge {
-  position: absolute; /* Positioned relative to the nav link */
-  top: -5px;
-  right: -10px;
-  font-size: 0.75rem;
-  background-color: #e74c3c; /* Adjust badge background color as needed */
-  color: #fff; /* Adjust badge text color as needed */
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 0.8rem;
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 50%;
 }
-.navbar-brand-text{
-  margin-left:25px;
 
+/* Navbar toggle button for mobile screens */
+.navbar-toggle {
+  display: none;
+  background: rgba(18, 16, 16, 0.8); 
+  color: #fff;
+  border: none;
+  padding-right: 60px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  margin-left: 250px;
+  z-index: 1001;
 }
+
+.navbar .dropdown {
+  position: relative;
+}
+
+.navbar .dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1f1f1f;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  width: 300px; /* Fixed width for the dropdown */
+  max-height: 400px; /* Maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.navbar .dropdown.open .dropdown-menu {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  gap: 8px;
+  padding: 16px;
+}
+
+/* Styling the scrollbar */
+.navbar .dropdown .dropdown-menu::-webkit-scrollbar {
+  height: 6px;
+}
+
+.navbar .dropdown .dropdown-menu::-webkit-scrollbar-track {
+  background: #2d2d2d;
+  border-radius: 3px;
+}
+
+.navbar .dropdown .dropdown-menu::-webkit-scrollbar-thumb {
+  background: #f39c12;
+  border-radius: 3px;
+}
+
+.navbar .dropdown .dropdown-item {
+  padding: 8px 16px;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  background:black;
+  /* border-radius: 20px; */
+  transition: all 0.2s ease;
+  flex: 0 0 auto;
+}
+
+.navbar .dropdown .dropdown-item:hover {
+  background: #f39c12;
+  transform: translateY(-2px);
+}
+
+.genre-slider {
+  display: inline;
+  overflow-x: scroll;
+  padding: 10px;
+  gap: 15px;
+}
+
+.genre-item {
+  padding: 10px 20px;
+  background-color: #2d2d2d;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.genre-item:hover {
+  background-color: #575757;
+}
+
 @media (max-width: 768px) {
-  /* .navbar-content {
-    flex-direction: column;
-    align-items: flex-start;
-  } */
-
-  .navbar-nav {
-    flex-direction: column;
-    width: 100%;
+  .navbar-toggle {
+    display: block; 
+    position: fixed;
+    top: 10px;
+    right: 10px; 
   }
-/* 
-  .nav-item {
-    margin: 5px 0;
-  } */
 
-  .nav-link {
-    width: 100%;
-    text-align: center;
+  .navbar-list {
+    display: none;
+  }
+
+  .navbar.open .navbar-list {
+    display: flex;
+    flex-direction: column; 
+    position: absolute;
+    top: -70px;
+    left: 0;
+    width: 90%;
+    padding-left: 30px;
+    margin-bottom: 0px;
+  }
+
+  .navbar .dropdown .dropdown-menu {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand-text {
+    font-size: 1.2rem;
   }
 }

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Search from '../Search/Search'; // Import the Search component
 import './Navbar.css';
-// import logo from './logo.jpg';
 
-export default function Navbar() {
+export default function Navbar({ setSearchResults }) {
   const [genres, setGenres] = useState([]);
+  const [isOpen, setIsOpen] = useState(false); // State for navbar toggle
+  const [dropdownOpen, setDropdownOpen] = useState(false); // State for genre dropdown
   const navigate = useNavigate();
-  const [watchListCount, setWatchListCount] = useState(0);
 
   useEffect(() => {
     async function fetchGenres() {
@@ -26,55 +27,83 @@ export default function Navbar() {
     fetchGenres();
   }, []);
 
-  const handleGenreClick = () => {
-    navigate('/genres');
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen); // Toggle the navbar state
   };
 
-  return (
-    <nav className="navbar vertical-navbar">
-      <div className="navbar-content">
-        <div className="d-flex align-items-center">
-          {/* <img src={logo} alt="Logo" className="navbar-logo" /> */}
-          <span className="navbar-brand-text">ConTv</span>
-        </div>
+  const toggleDropdown = (event) => {
+    event.stopPropagation(); // Prevent the event from propagating to the document level
+    setDropdownOpen(!dropdownOpen);
+  };
 
-        <ul className="navbar-nav">
+  const handleGenreClick = (genreId) => {
+    console.log(`Navigating to genre: ${genreId}`); // Debugging
+    setDropdownOpen(false); // Close the dropdown if necessary
+    navigate(`/genre/${genreId}`); // Navigate to the genre page
+  };
+
+  // Close the dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.navbar .dropdown')) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <nav className={`navbar ${isOpen ? 'open' : ''}`}>
+      <div className="navbar-content">
+        <span className="navbar-brand-text">ConTv</span>
+        <ul className={`navbar-list ${isOpen ? 'open' : ''}`}>
           <li className="nav-item">
             <NavLink className="nav-link" to="/">Home</NavLink>
           </li>
-          
-          {/* Genres Link */}
           <li className="nav-item">
-            <a
-              className="nav-link"
-              href="#"
-              onClick={handleGenreClick}
-            >
-              Genres
-            </a>
+            <NavLink className="nav-link" to="/movies">Movies</NavLink>
           </li>
-
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/tvshows">TV Shows</NavLink>
+          </li>
+          <li
+            className={`nav-item dropdown ${dropdownOpen ? 'open' : ''}`}
+            onClick={toggleDropdown}
+          >
+            <span className="nav-link dropdown-toggle">Genres</span>
+            <div className={`dropdown-menu ${dropdownOpen ? 'show' : ''}`}>
+              <div className="genre-slider">
+                {genres.map((genre) => (
+                  <div
+                    key={genre.id}
+                    className="dropdown-item genre-item"
+                    onClick={() => handleGenreClick(genre.id)}
+                  >
+                    {genre.name}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/actors">Actors</NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/watchList" style={{ position: 'relative' }}>
-              Favourites
-              <span
-                className="badge rounded-pill text-bg-light"
-                style={{
-                  position: 'absolute',
-                  top: '-15px',
-                  right: '-5px',
-                  fontSize: '10px',
-                  width: '20px',
-                }}
-              >
-                {watchListCount}
-              </span>
-            </NavLink>
-          </li>
         </ul>
+
+        {/* Search Component */}
+        <div className="search-container">
+          <Search setSearchResults={setSearchResults} />
+        </div>
+
+        {/* Navbar Toggle Button */}
+        <button className="navbar-toggle" onClick={toggleNavbar}>
+          ☰
+        </button>
       </div>
     </nav>
   );

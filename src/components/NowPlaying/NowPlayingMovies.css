@@ -1,0 +1,38 @@
+.now-playing {
+    margin: 2rem 0;
+  }
+  
+  .movie-list {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+  }
+  
+  .movie-card {
+    position: relative;
+    width: 180px;
+    text-align: center;
+  }
+  
+  .movie-card img {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .movie-card img:hover {
+    transform: scale(1.05);
+  }
+  
+  .rating-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+  }
+  

@@ -1,0 +1,87 @@
+.movies-page {
+    padding: 20px;
+    padding-top: 120px;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 100px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    background-color: #1f1f1f; 
+    padding: 10px;
+    border-radius: 8px;    
+  }
+  
+  .movies-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+  }
+  
+  .movie-card {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #1d1d1d;
+    
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .movie-info {
+    padding: 10px;
+    background-color: transparent;
+  }
+  
+  .movie-info h3 {
+    margin: 10px 0;
+    padding-right: 10px;
+    font-size: 18px;
+    
+  }
+  
+  .movie-info p {
+    font-size: 14px;
+    color: #ddd;
+  }
+  
+  .pagination {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 10px;
+    background: linear-gradient(45deg, #f39c12, #e74c3c);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .pagination button.active {
+    background: #155724;
+    color: #ffffff; 
+    font-weight: bold;
+  }
+  
+  .pagination button:hover {
+    background: #218838;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .filters {
+      gap: 40px;
+    }
+  }
+  

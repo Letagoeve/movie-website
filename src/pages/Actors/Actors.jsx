@@ -26,7 +26,7 @@ const Actors= () => {
 
   return (
     <div className="actors-list-page">
-      <h1>Popular Actors</h1>
+      <h1 className='heading'>Popular Actors</h1>
       <div className="actors-carousel">
         {actors.map(actor => (
           <div key={actor.id} className="actor-card">

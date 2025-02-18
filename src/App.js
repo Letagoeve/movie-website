@@ -1,16 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import Details from './components/MovieDetail/MovieDetail'
+import React, { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import RoutesConfig from './routes/RoutesConfig';
 
 const App = () => {
+  const [searchResults, setSearchResults] = useState([]); // State for search results
+
   return (
     <Router>
-      <Navbar />
-      <RoutesConfig/>
-      
+      <Navbar setSearchResults={setSearchResults} />
+      <RoutesConfig searchResults={searchResults} />
     </Router>
   );
 };

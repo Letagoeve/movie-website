@@ -1,7 +1,9 @@
 .actors-list-page {
     max-width: 2000px;
     margin: 0 auto;
-    padding: 220px;
+    /* padding: 220px; */
+    /* padding-left: 280px; */
+    padding-top: 120px;
   }
   
   .actors-carousel {
@@ -44,41 +46,13 @@
     text-align: center;
   }
   
+  .heading{
+    color:#f39c12;
+    text-align: center;
+  }
   
-@media (max-width: 768px) {
-  .actors-carousel {
-    flex-wrap: nowrap;
-  }
 
-  .actor-card {
-    width: 150px; /* Adjust width for smaller screens */
-  }
 
-  .actor-card img {
-    height: 150px; /* Adjust height for smaller screens */
-  }
 
-  .actor-info h3 {
-    font-size: 0.9rem; /* Adjust font size for smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .actors-carousel {
-    padding-right: 10px; /* Further reduce padding for very small screens */
-  }
-
-  .actor-card {
-    width: 120px; /* Adjust width for very small screens */
-  }
-
-  .actor-card img {
-    height: 120px; /* Adjust height for very small screens */
-  }
-
-  .actor-info h3 {
-    font-size: 0.8rem; /* Adjust font size for very small screens */
-  }
-}
   
   
