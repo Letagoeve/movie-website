@@ -1,3 +1,11 @@
-![image](https://github.com/user-attachments/assets/9d52c939-360b-4f9c-911c-03d882793d88)
 
+Desktop Movie Website
+website:https://elaborate-bublanina-aa0643.netlify.app/
+
+
+![image](https://github.com/user-attachments/assets/c921817e-544f-49c5-acfa-d3ca3add9e36)
+
+
+
+ 
 
